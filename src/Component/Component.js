@@ -10,25 +10,19 @@ function Component() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
-  const search = async (e) => {
-    if (e.key === 'Enter') {
-      await fetch(`${apiUrl}weather?q=${query}&appid=${apiKey}&units=metric`)
-        .then((res) => res.json())
-        .then((result) => {
-          setWeather(result);
-          setQuery('');
-        });
-    }
-  };
-
-  const openWeather = () => {
-    setWeather(weather);
+  const search = async () => {
+    await fetch(`${apiUrl}weather?q=${query}&appid=${apiKey}&units=metric`)
+      .then((res) => res.json())
+      .then((result) => {
+        setWeather(result);
+        setQuery('');
+      });
   };
 
   return (
     <div>
+      // API KEY AND URL
       <img src={image} alt="" className={styles.img} />
-
       <div className={styles.container} />
       <form onSubmit={(e) => e.preventDefault()}>
         <div className={styles.block}>
@@ -41,7 +35,7 @@ function Component() {
             onKeyPress={search}
           />
         </div>
-        <button onClick={openWeather}>SEARCH</button>
+        <button onClick={search}>SEARCH</button>
       </form>
       {typeof weather.main !== 'undefined' ? (
         <>
