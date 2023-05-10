@@ -28,7 +28,7 @@ function Component() {
           <input
             id="weather"
             placeholder="Search..."
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setQuery(e.currentTarget.value)}
             value={query}
             onKeyPress={search}
           />
