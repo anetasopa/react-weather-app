@@ -21,7 +21,6 @@ function Component() {
 
   return (
     <div>
-      // API KEY AND URL
       <img src={image} alt="" className={styles.img} />
       <div className={styles.container} />
       <form onSubmit={(e) => e.preventDefault()}>

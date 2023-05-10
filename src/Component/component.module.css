@@ -95,3 +95,7 @@ button:hover {
   color: #f24949;
   font-size: var(--font-size-b);
 }
+
+form {
+  margin-left: 40px;
+}
