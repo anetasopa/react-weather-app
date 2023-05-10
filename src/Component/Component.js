@@ -22,7 +22,6 @@ function Component() {
   return (
     <div>
       <img src={image} alt="" className={styles.img} />
-      <div className={styles.container} />
       <form onSubmit={(e) => e.preventDefault()}>
         <div className={styles.block}>
           <label htmlFor="weather">Write the location</label>
@@ -37,7 +36,7 @@ function Component() {
         <button onClick={search}>SEARCH</button>
       </form>
       {typeof weather.main !== 'undefined' ? (
-        <>
+        <div className={styles.result}>
           <span className={styles.name}>{weather.name}</span>
           <img
             className={styles.icon}
@@ -45,7 +44,7 @@ function Component() {
             alt="Icon"
           />
           <span className={styles.temp}>{Math.round(weather.main.temp)}°</span>
-        </>
+        </div>
       ) : (
         <span>Please write a city name</span>
       )}
