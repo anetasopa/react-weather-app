@@ -2,7 +2,6 @@ import { useState } from 'react';
 import image from '../images/weather.png';
 import styles from './component.module.css';
 
-// API KEY AND URL
 const apiUrl = 'https://api.openweathermap.org/data/2.5/';
 
 function Component() {
@@ -10,7 +9,6 @@ function Component() {
   const [weather, setWeather] = useState({});
 
   const search = async (e) => {
-    // if (e.key === 'Enter') {
     await fetch(
       `${apiUrl}weather?q=${query}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric`,
     )
@@ -19,7 +17,6 @@ function Component() {
         setWeather(result);
         setQuery('');
       });
-    // }
   };
 
   return (
@@ -33,7 +30,6 @@ function Component() {
             placeholder="Search..."
             onChange={(e) => setQuery(e.currentTarget.value)}
             value={query}
-            // onKeyPress={search}
           />
         </div>
         <button onClick={search}>SEARCH</button>
