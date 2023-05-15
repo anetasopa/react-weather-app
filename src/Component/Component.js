@@ -3,20 +3,23 @@ import image from '../images/weather.png';
 import styles from './component.module.css';
 
 // API KEY AND URL
-const apiKey = '4dc26f5af42150a38a0eb90b62606d2a';
 const apiUrl = 'https://api.openweathermap.org/data/2.5/';
 
 function Component() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
-  const search = async () => {
-    await fetch(`${apiUrl}weather?q=${query}&appid=${apiKey}&units=metric`)
-      .then((res) => res.json())
-      .then((result) => {
-        setWeather(result);
-        setQuery('');
-      });
+  const search = async (e) => {
+    if (e.key === 'Enter') {
+      await fetch(
+        `${apiUrl}weather?q=${query}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric`,
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setWeather(result);
+          setQuery('');
+        });
+    }
   };
 
   return (
