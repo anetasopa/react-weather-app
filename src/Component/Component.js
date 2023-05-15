@@ -21,7 +21,7 @@ function Component() {
 
   return (
     <div>
-      <img src={image} alt="" className={styles.img} />
+      <img src={image} alt="img" className={styles.img} />
       <form onSubmit={(e) => e.preventDefault()}>
         <div className={styles.block}>
           <label htmlFor="weather">Write the location</label>
