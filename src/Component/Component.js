@@ -10,16 +10,16 @@ function Component() {
   const [weather, setWeather] = useState({});
 
   const search = async (e) => {
-    if (e.key === 'Enter') {
-      await fetch(
-        `${apiUrl}weather?q=${query}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric`,
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setWeather(result);
-          setQuery('');
-        });
-    }
+    // if (e.key === 'Enter') {
+    await fetch(
+      `${apiUrl}weather?q=${query}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric`,
+    )
+      .then((res) => res.json())
+      .then((result) => {
+        setWeather(result);
+        setQuery('');
+      });
+    // }
   };
 
   return (
@@ -33,7 +33,7 @@ function Component() {
             placeholder="Search..."
             onChange={(e) => setQuery(e.currentTarget.value)}
             value={query}
-            onKeyPress={search}
+            // onKeyPress={search}
           />
         </div>
         <button onClick={search}>SEARCH</button>
