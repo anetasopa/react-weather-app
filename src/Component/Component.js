@@ -8,7 +8,7 @@ function Component() {
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
 
-  const search = async (e) => {
+  const search = async () => {
     await fetch(
       `${apiUrl}weather?q=${query}&appid=${process.env.REACT_APP_WEATHER_KEY}&units=metric`,
     )
